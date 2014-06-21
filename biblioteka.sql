@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 18 Cze 2014, 21:47
+-- Generation Time: 21 Cze 2014, 12:19
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -23,6 +23,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `adresy`
+--
+
+CREATE TABLE IF NOT EXISTS `adresy` (
+  `Id_czytelnika` int(11) NOT NULL AUTO_INCREMENT,
+  `Kod` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `Miasto` text CHARACTER SET utf8 NOT NULL,
+  `Ulica` text CHARACTER SET utf8 NOT NULL,
+  `Telefon` varchar(50) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`Id_czytelnika`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=6 ;
+
+--
+-- Zrzut danych tabeli `adresy`
+--
+
+INSERT INTO `adresy` (`Id_czytelnika`, `Kod`, `Miasto`, `Ulica`, `Telefon`) VALUES
+(1, '41-943', 'Piekary Śląskie', 'Wyzwolenia 34', '598-567-789'),
+(2, '41-878', 'Bytom', 'Dworcowa 45', '345-678-435'),
+(3, '34-789', 'Warszawa', 'Marszałkowska 34', '567-543-678'),
+(4, '67-876', 'Katowice', 'Wigóry 45', '678-890-656'),
+(5, '56-765', 'Żabie doły', 'Ogrodowa 45', '764-87-98');
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `authors`
 --
 
@@ -31,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `authors` (
   `author_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `author_surname` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`author_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Zrzut danych tabeli `authors`
@@ -41,57 +67,96 @@ INSERT INTO `authors` (`author_id`, `author_name`, `author_surname`) VALUES
 (1, 'Andrzej', 'Sapkowski'),
 (2, 'Henryk', 'Sienkiewicz'),
 (3, 'George', 'Martin'),
-(4, 'Camilla', 'Lackberg');
+(4, 'Camilla', 'Lackberg'),
+(5, 'Stepheni', 'Meyer'),
+(6, 'Suzanne', 'Colins'),
+(7, 'Jeremy', 'Clarkson'),
+(8, 'Dan', 'Brown'),
+(9, 'Malgorzata', 'Krawczyk');
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `books`
+-- Struktura tabeli dla tabeli `czytelnicy`
 --
 
-CREATE TABLE IF NOT EXISTS `books` (
-  `book_id` int(11) NOT NULL AUTO_INCREMENT,
-  `book_title` varchar(40) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `book_author` int(11) NOT NULL,
-  `is_borrowed` tinyint(1) NOT NULL,
-  PRIMARY KEY (`book_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=10 ;
+CREATE TABLE IF NOT EXISTS `czytelnicy` (
+  `Id_czytelnika` int(11) NOT NULL AUTO_INCREMENT,
+  `Nazwisko` varchar(30) NOT NULL,
+  `Imie` text NOT NULL,
+  `DataUrodzenia` date NOT NULL,
+  `MiejsceUr` text NOT NULL,
+  PRIMARY KEY (`Id_czytelnika`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Zrzut danych tabeli `books`
+-- Zrzut danych tabeli `czytelnicy`
 --
 
-INSERT INTO `books` (`book_id`, `book_title`, `book_author`, `is_borrowed`) VALUES
-(1, 'Krew elfow', 1, 1),
-(2, 'Pani jeziora', 1, 0),
-(3, 'Pan Wolodyjowski', 2, 0),
-(4, 'Uczta dla wron T1', 3, 0),
-(5, 'Latarnik', 4, 0),
-(6, 'Ksiezniczka z lodu', 4, 1),
-(7, 'Kamieniarz', 4, 0),
-(8, 'Uczta dla wron T2', 3, 1),
-(9, 'Gra o tron', 3, 0);
+INSERT INTO `czytelnicy` (`Id_czytelnika`, `Nazwisko`, `Imie`, `DataUrodzenia`, `MiejsceUr`) VALUES
+(1, 'Kot', 'Michał', '1989-05-09', 'Piekary Śląskie'),
+(2, 'Kozioł', 'Marek', '1988-11-11', 'Bytom'),
+(3, 'Paweł', 'Paweł', '1991-05-23', 'Warszawa'),
+(4, 'Kowalski', 'Jan', '1987-06-23', 'Katowice'),
+(5, 'Kurek', 'Krzysztof', '1990-12-24', 'Żabie doły');
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `users`
+-- Struktura tabeli dla tabeli `ksiazki`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `surname` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+CREATE TABLE IF NOT EXISTS `ksiazki` (
+  `Id_ksiazki` int(11) NOT NULL AUTO_INCREMENT,
+  `tytul` text NOT NULL,
+  `autor` int(11) NOT NULL,
+  `kategoria` text NOT NULL,
+  `wydawca` text NOT NULL,
+  `rok` text NOT NULL,
+  `status` enum('dostepna','zarezerwowana') NOT NULL,
+  PRIMARY KEY (`Id_ksiazki`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
--- Zrzut danych tabeli `users`
+-- Zrzut danych tabeli `ksiazki`
 --
 
-INSERT INTO `users` (`id`, `name`, `surname`, `email`) VALUES
-(1, 'Jan', 'Kowalski', 'sample@mail.com');
+INSERT INTO `ksiazki` (`Id_ksiazki`, `tytul`, `autor`, `kategoria`, `wydawca`, `rok`, `status`) VALUES
+(1, 'Jas i Malgosia', 9, 'Bajki', 'Nowa Era', '1978', 'dostepna'),
+(3, 'Swiat według klarksona', 7, 'Motoryzacja', 'Insignis', '2004', 'zarezerwowana'),
+(4, 'Kod Leonarda da vinci', 8, 'Nauka', 'A.Kurłowicz', '2007', 'dostepna'),
+(5, 'Igrzyska Smierci', 5, 'Dla mlodziezy ', 'Media Rodzina', '2012', 'dostepna'),
+(6, 'Zmierzch', 6, 'fantasy', 'wydawnictwo dolnośląskie', '2010', 'dostepna'),
+(7, 'Krew elfow', 1, 'fantasy', 'Nowa era', '2001', 'zarezerwowana'),
+(8, 'Latarnik', 4, 'kryminal', 'Helion', '2008', 'dostepna'),
+(9, 'Gra o tron', 3, 'fantasy', 'Nowa era', '2007', 'dostepna'),
+(10, 'Kamieniarz', 4, 'kryminal', 'Helion', '2005', 'dostepna'),
+(11, 'Uczta dla wron T1', 3, 'fantasy', 'Helion', '2009', 'dostepna'),
+(12, 'Uczta dla wron T2', 3, 'fantasy', 'Helion', '2010', 'dostepna');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `wypożyczenia`
+--
+
+CREATE TABLE IF NOT EXISTS `wypożyczenia` (
+  `Id_czytelnika` int(11) NOT NULL AUTO_INCREMENT,
+  `DataWyp` date NOT NULL,
+  `DataZwrotu` date NOT NULL,
+  PRIMARY KEY (`Id_czytelnika`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Zrzut danych tabeli `wypożyczenia`
+--
+
+INSERT INTO `wypożyczenia` (`Id_czytelnika`, `DataWyp`, `DataZwrotu`) VALUES
+(1, '2014-05-09', '2014-06-30'),
+(2, '2014-04-06', '2014-05-30'),
+(3, '2014-03-08', '2014-04-08'),
+(4, '2013-06-25', '2013-07-26'),
+(5, '2012-05-29', '2012-06-23');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

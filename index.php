@@ -8,11 +8,10 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="content/jquery.simplePagination.js"></script>
     <script> 
-    var currentPage = 1; 
-    var data;
-    var json;
-
      $(document).ready(function(){ 
+        var currentPage = 1; 
+        var data;
+        var json;
         function pobierz(){
             data = {authorName: $('#authorName').val(),
                     authorSurname: $('#authorSurname').val(),
