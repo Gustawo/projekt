@@ -82,23 +82,31 @@ INSERT INTO `authors` (`author_id`, `author_name`, `author_surname`) VALUES
 
 CREATE TABLE IF NOT EXISTS `czytelnicy` (
   `Id_czytelnika` int(11) NOT NULL AUTO_INCREMENT,
+  `Nr_karty` int(11) NOT NULL,
+  `Haslo` varchar(30) NOT NULL,
   `Nazwisko` varchar(30) NOT NULL,
-  `Imie` text NOT NULL,
+  `Imie` varchar(20) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `wydzial` varchar(20) NOT NULL,
   `DataUrodzenia` date NOT NULL,
-  `MiejsceUr` text NOT NULL,
+  `MiejsceUr` varchar(30) NOT NULL,
   PRIMARY KEY (`Id_czytelnika`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
 
 --
 -- Zrzut danych tabeli `czytelnicy`
 --
 
-INSERT INTO `czytelnicy` (`Id_czytelnika`, `Nazwisko`, `Imie`, `DataUrodzenia`, `MiejsceUr`) VALUES
-(1, 'Kot', 'Michał', '1989-05-09', 'Piekary Śląskie'),
-(2, 'Kozioł', 'Marek', '1988-11-11', 'Bytom'),
-(3, 'Paweł', 'Paweł', '1991-05-23', 'Warszawa'),
-(4, 'Kowalski', 'Jan', '1987-06-23', 'Katowice'),
-(5, 'Kurek', 'Krzysztof', '1990-12-24', 'Żabie doły');
+INSERT INTO `czytelnicy` (`Id_czytelnika`, `Nr_karty`, `Haslo`, `Nazwisko`, `Imie`, `email`, `wydzial`, `DataUrodzenia`, `MiejsceUr`) VALUES
+(1, 10101010, '1234', 'Kot', 'Michał', 'michal@post.com', 'Informatyki', '1989-05-09', 'Piekary Śląskie'),
+(2, 20202020, '1234', 'Kozioł', 'Marek', 'marek@post.com', 'Informatyki', '1988-11-11', 'Bytom'),
+(3, 30303030, '1234', 'Paweł', 'Paweł', 'pawel@post.com', 'Informatyki', '1991-05-23', 'Warszawa'),
+(4, 40404040, '1234', 'Kowalski', 'Jan', 'jan@post.com', 'Informatyki', '1987-06-23', 'Katowice'),
+(5, 50505050, '1234', 'Kurek', 'Krzysztof', 'krzysztof@post.com', 'Informatyki', '1990-12-24', 'Żabie doły');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 -- --------------------------------------------------------
 

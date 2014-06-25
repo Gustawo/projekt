@@ -1,0 +1,139 @@
+#signin, #errorsMessage
+{
+	display: none;
+}
+/*div-rejestracja, logowanie, przypomnienie hasla*/
+#register, #signInBody, #remindPasswForm
+{
+	margin: 0;
+	padding-bottom: 1%;
+	width: 20%;
+	border: 1px solid;
+	display: none;
+	background-color: #d7d7d7;
+	margin-left: 36%;
+	margin-top: -5%;
+	opacity: 0.9;
+}
+#register
+{
+	margin-top: -10%;
+
+}
+#register, #remindPasswForm, #signinBody
+{
+	font-weight: bold;
+}
+#signInBody
+{
+	display: block;
+	border-bottom: none;
+
+}
+#register input, #signInBody input, #data input, #data2 input, #data3 input
+{
+	margin-right:  100%;
+	width: 100%;
+}
+/*div-logowanie-stopka-odnosnik*/
+#remindPost
+{
+	text-align: center;
+	background-color: #999999;
+	width: 20%;
+	padding: 1% 0;
+	border: 1px solid;
+	margin-left: 36%;
+	opacity: 0.8;
+}
+#remind, #reg, #sig
+{
+	font-weight: bold;
+}
+/*formularz-logowanie, rejestracja*/
+#data, #data2, #data3
+{
+	margin: 0;
+	padding: 2% 4%;
+	width: auto;
+}
+
+#remindHeader, #registerHeader, #signInHeader
+{
+	border-bottom: 1px solid;
+	text-align: center;
+	padding: 4% 4%;
+	background-color: #336633;
+	color: white;
+	font-weight: bold;
+}
+#data #sig, #data #reg, #data #remind, #data2 #reg, #data3 #sig
+{
+	color: green;
+	padding: 2% 15%;
+	border: 1px solid white;
+	margin: auto; 
+	width: auto; 
+	display: block;
+}
+.error
+{
+	background-color: #990033;
+}
+#btnLook, #btnLook2, #btnLook3
+{
+	padding: 1% 2%;
+	border: 1px groove black;
+	margin-left: 80%;
+	float: left;
+	position: absolute;
+}
+#btnLook, #btnLook3
+{
+	margin-top: -15%;
+}
+#btnLook2
+{
+	margin-top: -15%;
+	margin-left: 89%;
+}
+#btnLook3
+{
+	margin-left: 90%;
+	display: none;
+}
+/*informacje o wykrytych bledach podczas walidacji danych*/
+#errorsMessage, #errorsMessage2, #errorsMessage3
+{
+	background-color: white;
+	width: 17.85%;
+	padding-top:  1.4%; 
+	padding-left:1%; 
+	padding-right: 1%; 
+	color: red;
+	font-weight: bold;
+	border-top: none;
+	border: solid gray 2px;
+	margin-left: 36%;
+	margin-top: 13.4%;
+	opacity: 0.8;
+}
+#errorsMessage
+{
+	margin-top: 0.01%;
+	margin-left: 36%;
+}
+/*formularz przypomnienie ..-wykaz bledow*/
+#errorsMessage2
+{
+	margin-top: -5%;
+	margin-left: 56.14%;
+	display: none;
+}
+/*formularz rejestracja-..*/
+#errorsMessage3
+{
+	margin-left: 56.25%;
+	margin-top: -10%;
+	display: none;
+}
